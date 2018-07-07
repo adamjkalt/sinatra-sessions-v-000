@@ -37,7 +37,7 @@ class App < Sinatra::Base
   end
 
   get '/set_session' do
-session[:id] = 1
+    session[:id] = 1
     if session[:id] == 1
       # "Session ID set. It's currently set to #{session[:id]}."
       redirect '/fetch_session_id'
@@ -51,8 +51,8 @@ session[:id] = 1
   end
 
   get '/logout' do
-    #clear session hash here
-    "Session has now been cleared. session content: #{session.inspect}. Continue on to the '/finish' line!"
+session.clear    
+"Session has now been cleared. session content: #{session.inspect}. Continue on to the '/finish' line!"
   end
 
   get '/finish' do
